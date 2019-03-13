@@ -1,2 +1,0 @@
-django>=2.7
-djangorestframework>=3.9.1
