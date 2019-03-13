@@ -14,7 +14,7 @@ class Modelo(models.Model):
     volume = models.IntegerField()
     
     def __str__(self):
-        return f"{self.nome} - {self.volume}ml"
+        return "%s - %sml" % (self.nome, self.volume)
 
 class Bebida(models.Model):
     id = models.AutoField(primary_key=True)
@@ -22,7 +22,7 @@ class Bebida(models.Model):
     modelo = models.ForeignKey(Modelo, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.marca} - {self.modelo}"
+        return "%s - %sml" % (self.marca, self.modelo)
 
 class Loja(models.Model):
     id = models.AutoField(primary_key=True)
