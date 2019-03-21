@@ -23,8 +23,8 @@ class ModeloSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'nome', 'volume')
 
 class BebidaSerializer(serializers.HyperlinkedModelSerializer):
-    marca = MarcaSerializer(read_only=True)
-    modelo = ModeloSerializer(read_only=True)
+    marca = MarcaSerializer()
+    modelo = ModeloSerializer()
 
     class Meta:
         model = Bebida
@@ -36,15 +36,15 @@ class LojaSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'nome')
 
 class ProdutoSerializer(serializers.HyperlinkedModelSerializer):
-    bebida = BebidaSerializer(read_only=True)
-    loja = LojaSerializer(read_only=True)
+    bebida = BebidaSerializer()
+    loja = LojaSerializer()
 
     class Meta:
         model = Produto
         fields = ('id', 'bebida', 'loja', 'preco_unidade', 'preco_litro', 'ultima_atualizacao')
 
 class CestaSerializer(serializers.HyperlinkedModelSerializer):
-    produtos = ProdutoSerializer(read_only=True, many=True)
+    produtos = ProdutoSerializer(many=True)
     
     class Meta:
         model = Cesta
