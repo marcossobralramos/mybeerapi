@@ -22,7 +22,7 @@ class Bebida(models.Model):
     modelo = models.ForeignKey(Modelo, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s - %sml" % (self.marca, self.modelo)
+        return "%s - %s" % (self.marca, self.modelo)
 
 class Loja(models.Model):
     id = models.AutoField(primary_key=True)
@@ -40,7 +40,7 @@ class Produto(models.Model):
     ultima_atualizacao = models.DateField(null=False)
     
     def __str__(self):
-        return self.bebida
+        return "%s - %s" % (self.bebida,self.loja)
 
 class Cesta(models.Model):
     id = models.AutoField(primary_key=True)
