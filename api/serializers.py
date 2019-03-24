@@ -86,7 +86,7 @@ class CestaSerializer(serializers.ModelSerializer):
                 produtos_representation.append({
                     'id': produto.id,
                     'id_relacionamento_produto_cesta': produto_cesta.id,
-                    'preco_unidade': produto.preco_unidade,
+                    'preco_unidade': produto_cesta.preco,
                     'preco_litro': produto.preco_litro,
                     'quantidade': produto_cesta.quantidade,
                     'ultima_atualizacao': produto.ultima_atualizacao,
