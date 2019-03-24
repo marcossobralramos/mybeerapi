@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .models import Marca, Modelo, Loja, Bebida, Produto, Cesta
-from api.serializers import MarcaSerializer, ModeloSerializer, LojaSerializer, BebidaSerializer, ProdutoSerializer, CestaSerializer, UserSerializer, GroupSerializer
+from .models import Marca, Modelo, Loja, Bebida, Produto, Cesta, ProdutosCesta
+from api.serializers import MarcaSerializer, ModeloSerializer, LojaSerializer, BebidaSerializer, ProdutoSerializer, CestaSerializer, UserSerializer, GroupSerializer, ProdutosCestaSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
@@ -34,3 +34,7 @@ class ProdutoViewSet(viewsets.ModelViewSet):
 class CestaViewSet(viewsets.ModelViewSet):
     queryset = Cesta.objects.all()
     serializer_class = CestaSerializer
+
+class ProdutosCestaViewSet(viewsets.ModelViewSet):
+    queryset = ProdutosCesta.objects.all()
+    serializer_class = ProdutosCestaSerializer

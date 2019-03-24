@@ -47,7 +47,7 @@ class Cesta(models.Model):
     descricao = models.TextField(null=False)
     total = models.FloatField(null=False)
     litros = models.FloatField(null=False)
-    produtos = models.ManyToManyField(Produto, through="ProdutosCesta", related_name="produtos")
+    produtos = models.ManyToManyField(Produto, through="ProdutosCesta", related_name="produtos", blank=True)
 
     def __str__(self):
         return self.descricao
@@ -56,3 +56,4 @@ class ProdutosCesta(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     cesta = models.ForeignKey(Cesta, on_delete=models.CASCADE)
     quantidade = models.IntegerField(null=False)
+    preco = models.FloatField(null=False)

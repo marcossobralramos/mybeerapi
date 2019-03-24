@@ -122,3 +122,8 @@ class CestaSerializer(serializers.ModelSerializer):
                 'litros': instance.litros,
                 'produtos': []
             }
+
+class ProdutosCestaSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = ProdutosCesta
