@@ -47,7 +47,7 @@ class Cesta(models.Model):
     descricao = models.TextField(null=False)
     total = models.FloatField(null=False)
     litros = models.FloatField(null=False)
-    produtos = models.ManyToManyField(Produto, through="ProdutosCesta")
+    produtos = models.ManyToManyField(Produto, through="ProdutosCesta", related_name="produtos")
 
     def __str__(self):
         return self.descricao
