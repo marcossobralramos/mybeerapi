@@ -62,7 +62,11 @@ class CestaSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         produtos = validated_data.pop('produtos')
-        cesta = Cesta.objects.create(**validated_data)
+        cesta = Cesta.objects.create(
+            descricao=validated_data.pop('descricao'),
+            litros=validated_data.pop('litros'),
+            total=validated_data.pop('total')
+        )
 
         for produto in produtos:
             produto_cesta = ProdutosCesta(
@@ -98,7 +102,7 @@ class CestaSerializer(serializers.ModelSerializer):
                         },
                         'modelo': {
                             'id': produto.bebida.modelo.id,
-                            'descricao': produto.bebida.modelo.nome,
+                            'nome': produto.bebida.modelo.nome,
                             'volume': produto.bebida.modelo.volume
                         }
                     },
